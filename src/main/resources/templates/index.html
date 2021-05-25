@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Netty WebSocket Server</title>
+</head>
+<body>
+<h2>Hello Socket</h2>
+
+<script type="text/javascript">
+      var socket;
+      if (!window.WebSocket) {
+        window.WebSocket = window.MozWebSocket;
+      }
+      if (window.WebSocket) {
+            socket = new WebSocket("ws://localhost:2048/ws?userId="+Math.random());
+            socket.onmessage = function(event) {
+                console.log(event.data);
+                ta.value = ta.value + '\n' + event.data
+            };
+            socket.onopen = function(event) {
+                                   Console.log (connection establish);
+            };
+            socket.onclose = function(event) {
+                                 Console.log (connection closed);
+            };
+        } else {
+                         Alert("Your browser does not support!");
+        }
+
+</script>
+</body>
+</html>
